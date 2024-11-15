@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam or Ham Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Spam or Ham Classifier</h1>
+        <form action="/predict" method="POST">
+            <textarea name="text" placeholder="Enter your email or text here..." required></textarea><br>
+            <button type="submit" class="btn">Classify</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result {{ color }}">
+                <p class="prediction-text">Prediction: {{ prediction }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
+
